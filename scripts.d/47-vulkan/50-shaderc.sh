@@ -1,16 +1,16 @@
 #!/bin/bash
 
 SCRIPT_REPO="https://github.com/google/shaderc.git"
-SCRIPT_COMMIT="c8456388a27b048b93e9082b36202c06200c8887"
+SCRIPT_COMMIT="1d234d34d43cf5ade135803f7777484eaa48e27f"
 
 ffbuild_enabled() {
-    [[ $ADDINS_STR == *4.4* ]] && return -1
+    (( $(ffbuild_ffver) > 404 )) || return -1
     return 0
 }
 
 ffbuild_dockerdl() {
     default_dl .
-    echo "./utils/git-sync-deps"
+    echo "./utils/git-sync-deps || exit $?"
 }
 
 ffbuild_dockerbuild() {
@@ -62,6 +62,6 @@ ffbuild_configure() {
 }
 
 ffbuild_unconfigure() {
-    [[ $ADDINS_STR == *4.4* ]] && return 0
+    (( $(ffbuild_ffver) > 404 )) || return 0
     echo --disable-libshaderc
 }

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_REPO="https://github.com/AcademySoftwareFoundation/openapv.git"
-SCRIPT_COMMIT="99e80816893e4b6c5fc57a2dda1141f037dd446c"
+SCRIPT_COMMIT="e04b3e84743e3c6306e7c06e38bc6d369161ce91"
 
 ffbuild_enabled() {
     (( $(ffbuild_ffver) > 701 )) || return -1

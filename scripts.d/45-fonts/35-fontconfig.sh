@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_REPO="https://gitlab.freedesktop.org/fontconfig/fontconfig.git"
-SCRIPT_COMMIT="22cbfff10da57dc56a497387d16478db064eb210"
+SCRIPT_COMMIT="25c40e71443046db4a89160971948ceca1a0046a"
 
 ffbuild_depends() {
     echo base
@@ -20,6 +20,7 @@ ffbuild_dockerbuild() {
     ./autogen.sh --noconf
 
     local myconf=(
+        ac_cv_va_copy="C99"
         --prefix="$FFBUILD_PREFIX"
         --disable-docs
         --enable-libxml2
