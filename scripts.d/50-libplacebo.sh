@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_REPO="https://code.videolan.org/videolan/libplacebo.git"
-SCRIPT_COMMIT="1dcaea8b601aa969ffd5bfa70088957ce3eaa273"
+SCRIPT_COMMIT="54e527552fa74467bcc7692e6985d35540861d19"
 
 ffbuild_depends() {
     echo base
@@ -19,8 +19,6 @@ ffbuild_dockerdl() {
 }
 
 ffbuild_dockerbuild() {
-    sed -i 's/DPL_EXPORT/DPL_STATIC/' src/meson.build
-
     mkdir build && cd build
 
     local myconf=(
